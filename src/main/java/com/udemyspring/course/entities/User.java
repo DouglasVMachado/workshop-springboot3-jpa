@@ -1,5 +1,6 @@
 package com.udemyspring.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.udemyspring.course.resources.UserResource;
 import jakarta.persistence.*;
 
@@ -21,6 +22,7 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 
